@@ -2,6 +2,7 @@
 """
 multiline comments are with the triple quotation marks
 """
+# the url for my github address is stored as window-git 
 """
 how to run in fedora 35 terminal
 first: fedora 35 comes with it already installed
@@ -180,7 +181,7 @@ for x in binlist:
 #userInputTape=['>', 1,0, 0, 0, 0, 0, 1, 0,0, 0, 1, 0, 1, 0, 0,0, 1, 0, 0, 1, 1, 0,0, 1, 1, 0, 0, 0, '.',1,0,1,1,0,1,'.']
 #userInputTape=['>', 1,0, 0, 0, 0, 0, 1, 0,0, 0, 1, 0, 1, 0, 0,0, 1, 0, 0, 1, 1, 0,0, 1, 1, 1, 0, 0, 0,1, 0, 0, 0, 0, 0, '.', 1,1,0,0,0,1,1,0,1,1,1,1,1,0,1,0, '.' ]
 
-userInputTape = ['>'] + intBinList + ['.', 1,1,1,1, 1,1,1,1, 1, '.' ]
+userInputTape = ['>'] + intBinList + ['.', 1,1,1,1, 1,1,1,1, 1,0, '.' ]
 print('The user input tape is ', str(userInputTape))
 
 reEncoDFAtape = ['>']
@@ -711,6 +712,7 @@ while block4 == 1:
 				q4DFATapeIndex -= 1
 			else:
 				tmState = TuringState('checkNextState')
+				print(q4DFATapeIndex)
 				
 	elif (tmState == TuringState.REWINDQ5):
 		while tmState == TuringState.REWINDQ5:
@@ -795,29 +797,30 @@ while block4 == 1:
 		inputTapeHead += 1
 		q4DFATapeIndex += 1
 		print('q4flag')
+		print('The tape is at: ', str(q4DFATapeIndex))
 	elif (tmState == TuringState.Q5COPYFLAG):
 		outputTape.append(q5DFAstateTape[q5DFATapeIndex])
 		tmState = TuringState('q5readInput')
 		inputTapeHead += 1
-		q4DFATapeIndex += 1
+		q5DFATapeIndex += 1
 		print('q5flag')	
 	elif (tmState == TuringState.Q6COPYFLAG):
 		outputTape.append(q6DFAstateTape[q6DFATapeIndex])
 		tmState = TuringState('q6readInput')
 		inputTapeHead += 1
-		q4DFATapeIndex += 1
+		q6DFATapeIndex += 1
 		print('q6flag')	
 	elif (tmState == TuringState.Q7COPYFLAG):
 		outputTape.append(q7DFAstateTape[q7DFATapeIndex])
 		tmState = TuringState('q7readInput')
 		inputTapeHead += 1
-		q4DFATapeIndex += 1
+		q7DFATapeIndex += 1
 		print('q7flag')	
 	elif (tmState == TuringState.Q8COPYFLAG):
 		outputTape.append(q8DFAstateTape[q8DFATapeIndex])
 		tmState = TuringState('q8readInput')
 		inputTapeHead += 1
-		q4DFATapeIndex += 1
+		q8DFATapeIndex += 1
 		print('q8flag')	
 	print(str(tmState))
 	
@@ -992,3 +995,4 @@ print(outputTapeIndex)
 print(str(len(outputTape)))
 print("The final output should be: ", str(outputTape[outputTapeIndex]))
 
+#I made a change!
